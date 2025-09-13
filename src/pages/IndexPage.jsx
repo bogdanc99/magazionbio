@@ -1,9 +1,11 @@
 import { useState } from "react"
 import { useProducts } from "../context/ProductsContext"
 import ProductCard from "../components/ProductCard"
+import { useTheme } from "../context/ThemeContext"
 
 export default function IndexPage() {
   const { products, loading } = useProducts()
+  const { theme } = useTheme()
   const [query, setQuery] = useState("")
   const [sort, setSort] = useState("newest")
 
@@ -52,7 +54,7 @@ export default function IndexPage() {
         <div className="bg-dark bg-opacity-50 p-4 rounded">
           <h1 className="display-3 fw-bold">Produse Bio</h1>
           <p className="lead">
-            Produse naturale și ecologice, pentru o viață sănătoasă.
+            Produse naturale si ecologice, pentru o viata sanatoasa.
           </p>
           <a href="#produse" className="btn btn-success btn-lg mt-3">
             Vezi produsele
@@ -124,80 +126,91 @@ export default function IndexPage() {
         </div>
       </section>
 
-     {/* CONTACT */}
-<section id="contact" className="py-5 bg-light">
-  <hr className="border-light" />
-  <div className="container">
-    <h2 className="mb-4 text-center">Contacteaza-ne</h2>
-    <div className="row g-5">
-      {/* Informatii contact */}
-      <div className="col-md-5">
-        <h5 className="fw-bold mb-3">Informatii utile</h5>
-        <p><i className="bi bi-geo-alt-fill text-success"></i>Bucuresti, Romania</p>
-        <p><i className="bi bi-telephone-fill text-success"></i> +40 712 345 678</p>
-        <p><i className="bi bi-envelope-fill text-success"></i> contact@itschool.ro</p>
-        <p><i className="bi bi-clock-fill text-success"></i> Luni - Vineri: 09:00 - 18:00</p>
+      {/* CONTACT cu dark mode */}
+      <section
+  id="contact"
+  className={`py-5 ${theme === "dark" ? "bg-dark text-light" : "bg-light text-dark"}`}
+>
+        <hr className={theme === "dark" ? "border-secondary" : "border-light"} />
+        <div className="container">
+          <h2 className="mb-4 text-center">Contacteaza-ne</h2>
+          <div className="row g-5">
+            {/* Informatii contact */}
+            <div className="col-md-5">
+              <h5 className="fw-bold mb-3">Informatii utile</h5>
+              <p><i className="bi bi-geo-alt-fill text-success"></i> Bucuresti, Romania</p>
+              <p><i className="bi bi-telephone-fill text-success"></i> +40 712 345 678</p>
+              <p><i className="bi bi-envelope-fill text-success"></i> contact@itschool.ro</p>
+              <p><i className="bi bi-clock-fill text-success"></i> Luni - Vineri: 09:00 - 18:00</p>
 
-        {/* Harta */}
-        <div className="mt-4">
-          <iframe
-            title="Google Maps"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.9637499277856!2d26.10253841553577!3d44.42676707910285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff471e1e7b65%3A0x2e2d94a5a1bb28e!2sBucuresti!5e0!3m2!1sen!2sro!4v1670000000000!5m2!1sen!2sro"
-            width="100%"
-            height="250"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-          ></iframe>
+              {/* Harta */}
+              <div className="mt-4">
+                <iframe
+                  title="Google Maps"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2848.9637499277856!2d26.10253841553577!3d44.42676707910285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b1ff471e1e7b65%3A0x2e2d94a5a1bb28e!2sBucuresti!5e0!3m2!1sen!2sro!4v1670000000000!5m2!1sen!2sro"
+                  width="100%"
+                  height="250"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+
+            {/* Formular contact */}
+            <div className="col-md-7">
+              <form
+                onSubmit={handleContactSubmit}
+                className={`p-4 shadow rounded ${theme === "dark" ? "bg-secondary text-light" : "bg-white text-dark"}`}
+              >
+                <div className="mb-3">
+                  <label className="form-label">Nume</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={form.name}
+                    onChange={(e) => setForm({ ...form, name: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Email</label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    value={form.email}
+                    onChange={(e) => setForm({ ...form, email: e.target.value })}
+                    required
+                  />
+                </div>
+                <div className="mb-3">
+                  <label className="form-label">Mesaj</label>
+                  <textarea
+                    className="form-control"
+                    rows="5"
+                    value={form.message}
+                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    required
+                  ></textarea>
+                </div>
+                <button type="submit" className="btn btn-success w-100">
+                  Trimite mesajul
+                </button>
+              </form>
+
+              {contactMsg && (
+                <div
+                  className={`alert mt-3 ${
+                    theme === "dark" ? "alert-dark border border-light text-light" : "alert-success"
+                  }`}
+                >
+                  {contactMsg}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* Formular contact */}
-      <div className="col-md-7">
-        <form onSubmit={handleContactSubmit} className="p-4 shadow rounded bg-white">
-          <div className="mb-3">
-            <label className="form-label">Nume</label>
-            <input
-              type="text"
-              className="form-control"
-              value={form.name}
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Email</label>
-            <input
-              type="email"
-              className="form-control"
-              value={form.email}
-              onChange={(e) => setForm({ ...form, email: e.target.value })}
-              required
-            />
-          </div>
-          <div className="mb-3">
-            <label className="form-label">Mesaj</label>
-            <textarea
-              className="form-control"
-              rows="5"
-              value={form.message}
-              onChange={(e) => setForm({ ...form, message: e.target.value })}
-              required
-            ></textarea>
-          </div>
-          <button type="submit" className="btn btn-success w-100">
-            Trimite mesajul
-          </button>
-        </form>
-
-        {contactMsg && (
-          <div className="alert alert-success mt-3">{contactMsg}</div>
-        )}
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Toast pentru cos */}
       {toast.show && (
