@@ -1,0 +1,44 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "Mere bio",
+      "price": 8.5,
+      "description": "Mere romanesti, cultivate fara pesticide.",
+      "image": "https://images.unsplash.com/photo-1567306226416-28f0efdc88ce",
+      "date": "2025-09-12T08:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "title": "Mixt legume bio",
+      "price": 15,
+      "description": "Un mix sanatos de rosii, ardei si castraveti.",
+      "image": "https://images.unsplash.com/photo-1506806732259-39c2d0268443",
+      "date": "2025-09-12T09:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "title": "Lapte bio",
+      "price": 6.5,
+      "description": "Lapte proaspat de vaca, provenit din ferme ecologice.",
+      "image": "https://images.unsplash.com/photo-1582719478185-2d7b1b6a6b33",
+      "date": "2025-09-12T10:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "title": "Miure de padure bio",
+      "price": 12,
+      "description": "Fructe de padure recoltate manual, bogate in antioxidanti.",
+      "image": "https://images.unsplash.com/photo-1562440499-64c9a9b4b29d",
+      "date": "2025-09-12T11:00:00.000Z"
+    },
+    {
+      "id": 5,
+      "title": "Paine integrala bio",
+      "price": 9,
+      "description": "Paine cu faina integrala si seminte, fara aditivi.",
+      "image": "https://images.unsplash.com/photo-1608198093002-ad4e0054848c",
+      "date": "2025-09-12T12:00:00.000Z"
+    }
+  ]
+}

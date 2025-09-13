@@ -1,0 +1,87 @@
+/* DARK MODE */
+body.dark {
+  background-color: #0d0d0d;
+  color: #f5f5f5;
+}
+
+/* Navbar & Footer */
+body.dark .navbar,
+body.dark footer {
+  background-color: #000000 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Sectiunea Beneficii */
+body.dark #beneficii,
+body.dark section.bg-success {
+  background-color: #111111 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Sectiunea Produse */
+body.dark #produse {
+  background-color: #1a1a1a !important;
+  color: #f5f5f5 !important;
+}
+
+/* Carduri Produse */
+body.dark .card {
+  background-color: #222222 !important;
+  border: 1px solid #333333 !important;
+  color: #f5f5f5 !important;
+}
+
+body.dark .list-group-item {
+  background-color: #222222 !important;
+  border-color: #333333 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Modal */
+body.dark .modal-content {
+  background-color: #1a1a1a !important;
+  border: 1px solid #333333 !important;
+  color: #f5f5f5 !important;
+}
+
+/* Links, titluri, texte */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark h4,
+body.dark h5,
+body.dark h6,
+body.dark p,
+body.dark a,
+body.dark .nav-link {
+  color: #f5f5f5 !important;
+}
+
+/* Butoane verzi in dark mode */
+body.dark .btn-success {
+  background-color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+body.dark .btn-outline-success {
+  color: #198754 !important;
+  border-color: #198754 !important;
+}
+
+body.dark .btn-outline-success:hover {
+  background-color: #198754 !important;
+  color: #fff !important;
+}
+
+
+
+/* Search input in dark mode */
+body.dark input.form-control {
+  background-color: #222 !important;
+  color: #f1f1f1 !important;
+  border: 1px solid #444 !important;
+}
+
+body.dark input.form-control::placeholder {
+  color: #aaa !important;
+}
